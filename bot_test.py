@@ -1,28 +1,13 @@
 
-'''
------BEGIN RSA PUBLIC KEY-----
-MIIBCgKCAQEAyMEdY1aR+sCR3ZSJrtztKTKqigvO/vBfqACJLZtS7QMgCGXJ6XIR
-yy7mx66W0/sOFa7/1mAZtEoIokDP3ShoqF4fVNb6XeqgQfaUHd8wJpDWHcR2OFwv
-plUUI1PLTktZ9uW2WE23b+ixNwJjJGwBDJPQEQFBE+vfmH0JP503wr5INS1poWg/
-j25sIWeYPHYeOrFp/eXaqhISP6G+q2IeTaWTXpwZj4LzXq5YOpk4bYEQ6mvRq7D1
-aHWfYmlEGepfaYR8Q0YqvvhYtMte3ITnuSJs171+GDqpdKcSwHnd6FudwGO4pcCO
-j4WcDuXc2CTHgH8gFTNhp/Y8/SpDOhvn9QIDAQAB
------END RSA PUBLIC KEY-----
 
-Test - Config: 149.154.167.40:443
 
-App api_id: 12065071
-App api_hash: 7489809ae930c4591048f56688248f9e
-
-Bot Token: 2111304281:AAHyvHmJdzbdy3tm6FFhYB_lS1c3J0ibOx0
-'''
-
-TOKEN = '2111304281:AAHyvHmJdzbdy3tm6FFhYB_lS1c3J0ibOx0'
+TOKEN = 'token'
 
 #!/usr/bin/env python
 # pylint: disable=C0116,W0613
 
 import logging
+from random import randint
 import threading
 import time
 from text_selector import MorningMsg
@@ -68,7 +53,9 @@ def echo(update: Update, context: CallbackContext):
 #daily functionallity
 def gm(update: Update, context: CallbackContext):
 
-    update.message.reply_text(MorningMsg.msg())
+    for x in range(randint(3,6)):
+        update.message.reply_text(MorningMsg.msg())
+        time.sleep(3)
     '''
     for x in range(5):
         update.message.reply_text("Дорое утро кис")
