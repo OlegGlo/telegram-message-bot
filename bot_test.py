@@ -64,7 +64,7 @@ def gm(update: Update, context: CallbackContext):
 
     for x in range(randint(3,4)):
         message = text_select.msg()
-        print(message)
+        #print(message)
         update.message.reply_text(message)
         time.sleep(3)
         
