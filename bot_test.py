@@ -1,14 +1,27 @@
 
 
 
-TOKEN = 'token'
+
+'''
+ToDo:
+    Fixed repeated messages
+
+
+
+
+
+
+
+'''
+
+
+TOKEN = '2111304281:AAHyvHmJdzbdy3tm6FFhYB_lS1c3J0ibOx0'
 
 #!/usr/bin/env python
 # pylint: disable=C0116,W0613
 
 import logging
 from random import randint
-import threading
 import time
 from text_selector import MorningMsg
 
@@ -53,9 +66,14 @@ def echo(update: Update, context: CallbackContext):
 #daily functionallity
 def gm(update: Update, context: CallbackContext):
 
-    for x in range(randint(3,6)):
-        update.message.reply_text(MorningMsg.msg())
+    text_select = MorningMsg('text_example.txt') #The file from which text is generated
+
+    for x in range(randint(3,4)):
+        message = text_select.msg()
+        print(message)
+        update.message.reply_text(message)
         time.sleep(3)
+        
     '''
     for x in range(5):
         update.message.reply_text("Дорое утро кис")
